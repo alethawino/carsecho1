@@ -1,32 +1,27 @@
 
+document.getElementById("nav01").innerHTML =
+"<ul id='menu'>" +
+"<li><a href='index.html'>Home</a></li>" +
+"<li><a href='Inventory.html'>Inventory</a></li>" +
+"<li><a href='Contact.html'>Contact Us</a></li>" +
+"<li><a href='Signup.html'>Sign up</a></li>" +
+"<li><a href='About.html'>About</a></li>" 
+"</ul>";
 
 var slideIndex = 1;
-showSlides(slideIndex);
+showDivs(slideIndex);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
+function showDivs(n) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+  x[slideIndex-1].style.display = "block";
 }
